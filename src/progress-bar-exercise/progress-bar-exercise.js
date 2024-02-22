@@ -1,4 +1,5 @@
 import Exercise from '../core/exercise';
+import V1 from './v1';
 
 const ProgressBarExercise = () => {
   return (
@@ -17,5 +18,9 @@ export default ProgressBarExercise;
 // ----------------------------------------------------------------------------------
 
 const Solution = () => {
-  return <div>Add solution here</div>;
+  return (
+    <>
+      <V1 />
+    </>
+  );
 };

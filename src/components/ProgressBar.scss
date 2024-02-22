@@ -1,0 +1,59 @@
+@import '../shared_styles/colors.scss';
+
+$fillPercentage: 90;
+$totalDuration: 15s;
+
+.progress-bar-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .progress-bar-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    height: 6px;
+    border: 1px solid $gray-lighter;
+
+    .progress-bar {
+      height: inherit;
+      width: 0;
+      background: linear-gradient(to right, $sunset, $coral, $red);
+      transition: width 0.4s linear;
+    }
+  }
+
+  .progress-bar-percentage {
+    width: 24px;
+    text-align: right;
+  }
+
+  @mixin animate($animation, $duration, $method, $times) {
+    animation: $animation $duration $method $times;
+  }
+
+  @mixin keyframes($name) {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+
+  &.hide {
+    @include keyframes(fade) {
+      25% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @include animate(fade, 3s, ease-out, forwards);
+  }
+}

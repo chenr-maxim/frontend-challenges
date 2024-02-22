@@ -1,0 +1,41 @@
+@import '../shared_styles/colors.scss', '../shared_styles/typography.scss';
+
+.button-container {
+  display: flex;
+  border: 1px solid black;
+  font-family: $standard-font;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px 32px;
+  min-width: 200px;
+  font-weight: 600;
+  justify-content: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  &.green {
+    color: $green;
+    border-color: $green;
+
+    &:not(:disabled):hover {
+      outline: 2px solid $green;
+      font-weight: 800;
+    }
+  }
+
+  &.red {
+    color: $red;
+    border-color: $red;
+
+    &:not(:disabled):hover {
+      outline: 2px solid $red;
+      font-weight: 800;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}

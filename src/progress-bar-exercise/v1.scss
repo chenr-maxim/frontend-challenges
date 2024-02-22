@@ -1,0 +1,15 @@
+.v1-container {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: inherit;
+  flex-direction: column;
+  gap: 20px;
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+  }
+}
