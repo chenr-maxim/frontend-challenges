@@ -5,7 +5,6 @@ import './ProgressBar.scss';
 
 const ProgressBar = ({ fade, progress, toggleBreakpoint }) => {
   const [isApproaching, setIsApproaching] = useState(false);
-  const [progressWidth, setProgressWidth] = useState(0);
   const progressBarRef = useRef(null);
   const progressBarWrapperRef = useRef(null);
 
@@ -24,12 +23,6 @@ const ProgressBar = ({ fade, progress, toggleBreakpoint }) => {
           setIsApproaching(false);
         }
       }
-      // const percentageOfWrapper = Math.floor(
-      //   (progressBarRef.current.clientWidth /
-      //     progressBarWrapperRef.current.clientWidth) *
-      //     100
-      // );
-      // setProgressWidth(percentageOfWrapper);
     }
   }, [progress]);
 
