@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint --fix ./src",
-    "prettify": "prettier --write ./src"
+    "prettify": "prettier --write ./src",
+    "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -22,14 +23,15 @@
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
     "eslint-config-prettier": "9.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "prettier": "3.2.4"
   },
-  "eslintConfig": { 
-    "extends": [ 
-      "react-app", 
-      "react-app/jest", 
-      "prettier" 
-    ] 
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier"
+    ]
   },
   "browserslist": {
     "production": [
@@ -42,5 +44,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    }
   }
 }

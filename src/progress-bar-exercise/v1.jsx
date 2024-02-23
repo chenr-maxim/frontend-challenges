@@ -91,6 +91,7 @@ const V1 = () => {
         <label htmlFor="breakpointToggle">
           <input
             id="breakpointToggle"
+            data-testid="breakpointToggle"
             type="checkbox"
             value={toggleBreakPoint}
             onClick={onChange}

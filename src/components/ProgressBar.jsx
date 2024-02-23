@@ -30,6 +30,7 @@ const ProgressBar = ({ fade, progress, toggleBreakpoint }) => {
     <div className={`progress-bar-row ${fade ? 'hide' : 'show'}`}>
       <div ref={progressBarWrapperRef} className="progress-bar-wrapper">
         <div
+          data-testid="progress-bar"
           ref={progressBarRef}
           className={`progress-bar ${isApproaching ? 'slow-animation' : ''}`}
           style={{
