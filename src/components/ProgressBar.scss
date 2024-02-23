@@ -20,7 +20,11 @@ $totalDuration: 15s;
       height: inherit;
       width: 0;
       background: linear-gradient(to right, $sunset, $coral, $red);
-      transition: width 0.4s linear;
+      transition: width 0.3s linear;
+
+      &.slow-animation {
+        transition: width 1.2s ease-out;
+      }
     }
   }
 

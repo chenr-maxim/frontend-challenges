@@ -16,6 +16,7 @@ const V1 = () => {
 
   // onFinishRequest is for fading the progress bar
   const [onFinishRequest, setOnFinishRequest] = useState(false);
+  const [toggleBreakPoint, setToggleBreakPoint] = useState(false);
 
   // we need refs for interval and timeout for when the requests finish, and progress
   const intervalRef = useRef(null);
@@ -56,6 +57,10 @@ const V1 = () => {
     }, HALF_SECOND);
   };
 
+  const onChange = () => {
+    setToggleBreakPoint((prevFlag) => !prevFlag);
+  };
+
   // clean up interval and timeout ref after unmount
   useEffect(() => {
     return () => {
@@ -66,7 +71,11 @@ const V1 = () => {
 
   return (
     <div className="v1-container">
-      <ProgressBar fade={onFinishRequest} progress={progress} />
+      <ProgressBar
+        fade={onFinishRequest}
+        progress={progress}
+        toggleBreakpoint={toggleBreakPoint}
+      />
       <div className="button-row">
         <Button
           onClick={startFakeRequest}
@@ -77,6 +86,18 @@ const V1 = () => {
         <Button onClick={stopFakeRequest} disabled={!requestActive} color="red">
           FINISH REQUEST
         </Button>
+      </div>
+      <div className="toggle-container">
+        <label htmlFor="breakpointToggle">
+          <input
+            id="breakpointToggle"
+            data-testid="breakpointToggle"
+            type="checkbox"
+            value={toggleBreakPoint}
+            onClick={onChange}
+          />
+          <span>Toggle Breakpoints</span>
+        </label>
       </div>
     </div>
   );
